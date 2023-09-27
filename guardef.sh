@@ -24,7 +24,7 @@ guard_file() {
 
 def_all() {
 	files=$1
-	if [ $# = 0 ]
+	if [ $# = 0 ] ## no files inputted
 	then
 		files=`find . -type f -name "*.h"`
 	fi
@@ -33,7 +33,7 @@ def_all() {
 	do
 		if ! [ -f "$each" ]
 		then
-			touch $each
+			touch $each ##user inputted a file that doesn't exist yet, so we create it
 		fi
 		dos2unix $each
 		local file_path=$(dirname $each)"/"
